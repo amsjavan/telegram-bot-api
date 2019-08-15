@@ -93,8 +93,6 @@ func (chat *BaseChat) values() (url.Values, error) {
 		v.Add("reply_markup", string(data))
 	}
 
-	v.Add("disable_notification", strconv.FormatBool(chat.DisableNotification))
-
 	return v, nil
 }
 
@@ -1169,8 +1167,6 @@ func (config PinChatMessageConfig) values() (url.Values, error) {
 
 	v.Add("chat_id", strconv.FormatInt(config.ChatID, 10))
 	v.Add("message_id", strconv.Itoa(config.MessageID))
-	v.Add("disable_notification", strconv.FormatBool(config.DisableNotification))
-
 	return v, nil
 }
 
