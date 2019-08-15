@@ -203,7 +203,6 @@ func (config MessageConfig) values() (url.Values, error) {
 		return v, err
 	}
 	v.Add("text", config.Text)
-	v.Add("disable_web_page_preview", strconv.FormatBool(config.DisableWebPagePreview))
 	if config.ParseMode != "" {
 		v.Add("parse_mode", config.ParseMode)
 	}
@@ -889,7 +888,6 @@ func (config EditMessageTextConfig) values() (url.Values, error) {
 
 	v.Add("text", config.Text)
 	v.Add("parse_mode", config.ParseMode)
-	v.Add("disable_web_page_preview", strconv.FormatBool(config.DisableWebPagePreview))
 
 	return v, nil
 }
