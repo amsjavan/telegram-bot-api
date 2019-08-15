@@ -70,7 +70,9 @@ func (b *BotAPI) SetAPIEndpoint(apiEndpoint string) {
 // MakeRequest makes a request to a specific endpoint with our token.
 func (bot *BotAPI) MakeRequest(endpoint string, params url.Values) (APIResponse, error) {
 	method := fmt.Sprintf(bot.apiEndpoint, bot.Token, endpoint)
-
+	if bot.Debug {
+		log.Printf("%s req : %+v\n", method, params)
+	}
 	resp, err := bot.Client.PostForm(method, params)
 	if err != nil {
 		return APIResponse{}, err
